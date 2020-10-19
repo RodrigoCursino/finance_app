@@ -1,6 +1,12 @@
 #folders
 .vscode/
 venv35/
+migrations
 
 #files
 config.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/ 
+*.py[cod]
+*$py.class
