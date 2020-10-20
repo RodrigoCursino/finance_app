@@ -12,7 +12,7 @@ def login_required(f):
         """
         Decodes um auth token
         :param: request:
-        :return: string|boolean
+        :return: string
         """
         try:
             auth_token  = ""

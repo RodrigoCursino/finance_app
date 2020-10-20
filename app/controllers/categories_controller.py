@@ -10,7 +10,7 @@ class CategoriesController(Resource):
     @login_required
     def get(self):
         try:
-            return CategoriesService.get_by_param('id', 1), 200
+            return CategoriesService.list_all(), 200
         except Exception as e:
             return {"msg": "Key error"}, 404
 
