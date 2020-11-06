@@ -5,7 +5,12 @@ from app.models.category_model                    import Category
 from app.models.color_model                       import Color
 from app.models.credit_card_banner_model          import CreditCardBanner
 from app.models.credit_card_model                 import CreditCard
+from app.models.goal_model                        import Goal
+from app.models.goal_payment_model                import GoalPayment
 from app.models.icons_model                       import Icon
+from app.models.monthly_expense_model             import MonthlyExpense
+from app.models.monthly_income_model              import MonthlyIncome
+from app.models.monthly_payment_model             import MonthlyPayment
 from app.models.monthly_planning_categories_model import MonthlyPlanningCategories
 from app.models.monthly_planning_model            import MonthlyPlanning
 from app.models.role_model                        import Role
