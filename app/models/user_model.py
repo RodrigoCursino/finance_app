@@ -14,8 +14,8 @@ class User(db.Model):
         self.username  = username
         self.name      = name
         self.cellphone = cellphone
-        self.activate  = activate
         self.password  = bcrypt.generate_password_hash(
             password, app.config.get('BCRYPT_LOG_ROUNDS')
         ).decode()
         self.email    = email
+        self.activate  = activate
