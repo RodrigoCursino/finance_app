@@ -1,6 +1,6 @@
 from app.models.category_model     import Category
 from app.routes                    import categories_route
-from app.serialization import model_categories
+from app.serialization             import model_categories
 
 class CategoriesService():
     @staticmethod

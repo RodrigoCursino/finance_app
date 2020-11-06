@@ -38,3 +38,42 @@ model_user = api.model('User',{
     'password' : fields.String,
     'email'    : fields.String,
 })
+
+# Bank  
+model_bank = api.model('Bank', {
+    'id'    : fields.Integer,
+    'name'  : fields.String,
+    'code'  : fields.String,
+    'brand' : fields.String,
+})
+
+# Account Type
+model_account_type = api.model('AccountType', {
+    'id'   : fields.Integer,
+    'name' : fields.String,
+    'icon' : fields.Nested(model_icon),
+})
+
+# Bank Account 
+model_bank_account = api.model('BankAccount', {
+    'id'                 : fields.Integer,
+    'name'               : fields.String,
+    'description'        : fields.String,
+    'bank'               : fields.Nested(model_bank),
+    'color'              : fields.Nested(model_color),
+    'account_type'       : fields.Nested(model_account_type),
+    'check_in_home'      : fields.Boolean,
+})
+
+# Monthly Income
+model_monthly_income = api.model('MonthlyIncome',{
+    'id'           : fields.Integer,
+    'start_date'   : fields.DateTime,      
+    'description'  : fields.DateTime,     
+    'period'       : fields.Integer,         
+    'recurring'    : fields.Boolean,       
+    'received'     : fields.Boolean,          
+    'value'        : fields.Float,           
+    'category'     : fields.Nested(model_categories),     
+    'bank_account' : fields.Nested(model_bank_account),          
+})
