@@ -18,17 +18,19 @@ def login_required(f):
             auth_token  = ""
             auth_header = request.headers.get('Authorization')
             
-            if auth_header:
+            if (len(auth_header.split(" ")) == 2):
                 auth_token = auth_header.split(" ")[1]
 
-            payload = jwt.decode(auth_token, app.config.get('SECRET_KEY'))   
+                payload = jwt.decode(auth_token, app.config.get('SECRET_KEY'))   
 
-            user = User.query.filter_by(id=payload['id'],email=payload['email']).first()         
-    
-            if user:
-                return f(*args, **kwargs)
-            else:
-                return {"Mensagem":"Não Permitido"}, 401
+                user = User.query.filter_by(id=payload['id'],email=payload['email']).first()         
+        
+                if user:
+                    return f(*args, **kwargs)
+                else:
+                    return {"Mensagem":"Não Permitido"}, 401
+
+            return {"Mensagem":"Não Permitido"}, 401
         
         except jwt.ExpiredSignatureError:
             print('Signature expired. Please log in again.')

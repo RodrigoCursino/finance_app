@@ -14,6 +14,14 @@ model_icon = api.model('Icon', {
     'icon'      : fields.String,
 })
 
+# Bank  
+model_bank = api.model('Bank', {
+    'id'    : fields.Integer,
+    'name'  : fields.String,
+    'code'  : fields.String,
+    'brand' : fields.String,
+})
+
 # Categories
 model_categories = api.model('Category', {
     'id'         : fields.Integer,
@@ -22,9 +30,29 @@ model_categories = api.model('Category', {
     'color'      : fields.Nested(model_color),
 })
 
+# CreditCardBanner
+model_credit_card_banner = api.model('CreditCardBanner', {
+    'id'     : fields.Integer,
+    'name'   : fields.String,
+    'brand'  : fields.Integer,
+})
+
+# CreditCard
+model_credit_card = api.model('CreditCard', {
+    'description'                  : fields.String,
+    'close_day'                    : fields.Integer,
+    'pay_day'                      : fields.Integer,
+    'budget_limit'                 : fields.Float,
+    'bank_id'                      : fields.Integer,
+    'credit_card_banner_id'        : fields.Integer,
+    'credit_card_invoice_reminder' : fields.Boolean,
+    'activate'                     : fields.Boolean,
+    'bank'                         : fields.Nested(model_bank),
+    'credit_card_banner'           : fields.Nested(model_credit_card_banner),
+})
+
 # Login
-model_login = api.model('Login',{
-    'username' : fields.String(required=True),
+model_login = api.model('User',{
     'password' : fields.String(required=True),
     'email'    : fields.String(required=True),
 })
@@ -37,14 +65,6 @@ model_user = api.model('User',{
     'name'     : fields.String,
     'password' : fields.String,
     'email'    : fields.String,
-})
-
-# Bank  
-model_bank = api.model('Bank', {
-    'id'    : fields.Integer,
-    'name'  : fields.String,
-    'code'  : fields.String,
-    'brand' : fields.String,
 })
 
 # Account Type

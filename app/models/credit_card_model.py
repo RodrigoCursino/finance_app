@@ -7,7 +7,7 @@ class CreditCard(db.Model):
     close_day                    = db.Column(db.Integer)
     pay_day                      = db.Column(db.Integer)
     budget_limit                 = db.Column(db.Float(precision=2, asdecimal=True))
-    bank_id                      = db.Column(db.Integer, db.ForeignKey('bank_accounts.id'))
+    bank_id                      = db.Column(db.Integer, db.ForeignKey('banks.id'))
     credit_card_banner_id        = db.Column(db.Integer, db.ForeignKey('credit_card_flags.id'))
     credit_card_invoice_reminder = db.Column(db.Boolean, default=True)
     activate                     = db.Column(db.Boolean, default=True)

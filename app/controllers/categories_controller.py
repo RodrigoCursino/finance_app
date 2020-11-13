@@ -6,6 +6,7 @@ from  app.services.categories_service import CategoriesService
 @categories_route.route('/')
 @categories_route.response(404, 'Page not found')
 @categories_route.response(500, ';(')
+@categories_route.response(401, 'XXX')
 class CategoriesController(Resource):
     @login_required
     def get(self):
